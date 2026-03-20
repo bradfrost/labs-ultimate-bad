@@ -8,10 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@brad-frost-web/eddie-design-tokens": "^0.19.4",
-    "@brad-frost-web/eddie-icons": "^0.19.4",
-    "@brad-frost-web/eddie-web-components": "^0.19.4",
-    "@brad-frost-web/eddie-recipes": "^0.19.4"
+    "@brad-frost-web/eddie-design-tokens": "^0.20.0-pre.2",
+    "@brad-frost-web/eddie-icons": "^0.20.0-pre.2",
+    "@brad-frost-web/eddie-recipes": "^0.20.0-pre.2",
+    "@brad-frost-web/eddie-web-components": "^0.20.0-pre.2"
   },
   "devDependencies": {
     "vite": "^6.0.0"
