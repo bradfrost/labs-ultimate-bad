@@ -1,5 +1,5 @@
 // Fonts & tokens
-import '@brad-frost-web/eddie-design-tokens/bfw/scss/fonts.scss';
+import '@brad-frost-web/eddie-design-tokens/bfw/css/fonts.css';
 import '@brad-frost-web/eddie-design-tokens/bfw/build/css/tokens.css';
 
 // Components
