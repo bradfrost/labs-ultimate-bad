@@ -1,26 +1,32 @@
+import fs from 'fs';
 import path from 'path';
 import { defineConfig } from 'vite';
 
 const eddieRoot = path.resolve(__dirname, '../../eddie-design-system');
+const useLocalEddie = fs.existsSync(eddieRoot);
 
 export default defineConfig({
   resolve: {
-    alias: {
-      '@brad-frost-web/eddie-web-components': path.join(eddieRoot, 'packages/eddie-web-components'),
-      '@brad-frost-web/eddie-design-tokens': path.join(eddieRoot, 'packages/eddie-design-tokens'),
-      '@brad-frost-web/eddie-icons': path.join(eddieRoot, 'packages/eddie-icons'),
-      '@brad-frost-web/eddie-recipes': path.join(eddieRoot, 'packages/eddie-recipes'),
-    },
+    alias: useLocalEddie
+      ? {
+          '@brad-frost-web/eddie-web-components': path.join(eddieRoot, 'packages/eddie-web-components'),
+          '@brad-frost-web/eddie-design-tokens': path.join(eddieRoot, 'packages/eddie-design-tokens'),
+          '@brad-frost-web/eddie-icons': path.join(eddieRoot, 'packages/eddie-icons'),
+          '@brad-frost-web/eddie-recipes': path.join(eddieRoot, 'packages/eddie-recipes'),
+        }
+      : {},
   },
   css: {
     preprocessorOptions: {
       scss: {
         api: 'modern-compiler',
-        includePaths: [
-          path.join(eddieRoot, 'packages/eddie-design-tokens/core/scss'),
-          path.join(eddieRoot, 'packages/eddie-design-tokens'),
-          path.join(eddieRoot, 'packages'),
-        ],
+        includePaths: useLocalEddie
+          ? [
+              path.join(eddieRoot, 'packages/eddie-design-tokens/core/scss'),
+              path.join(eddieRoot, 'packages/eddie-design-tokens'),
+              path.join(eddieRoot, 'packages'),
+            ]
+          : [],
       },
     },
   },
